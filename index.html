@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
+
+        <script>
+        
+            $(function() {
+                $.ajax({
+                    url:"http://localhost:9988/token",
+                    type: 'get',
+                    dataType: "json",
+                    jsonp: 'callback',
+                    success: data => {
+                        if(data) {
+                            console.log(data);
+                        }
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>
