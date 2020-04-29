@@ -11,12 +11,12 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-// var corsOptions = {
-//   origin: 'http://www.innok-lpsk.com',
-//   credentials: true,
-//   maxAge: '1728000'
-//   //这一项是为了跨域专门设置的
-// }
+var corsOptions = {
+  origin: 'http://www.innok-lpsk.com',
+  credentials: true,
+  maxAge: '1728000'
+  //这一项是为了跨域专门设置的
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +30,7 @@ app.set('view engine', 'jade');
 //      next();
 //   });
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -45,7 +45,7 @@ app.get('/token', (req, res, next) => {
     httpOnly: false, 
     sameSite: 'None', 
     secure: true ,
-    domain: 'bbscmyk.com'
+    // domain: 'www.bbscmyk.com'
   });
   // res.setHeader('Set-Cookie', serialize('isVisit', '1'));
 
