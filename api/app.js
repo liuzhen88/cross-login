@@ -43,8 +43,8 @@ app.get('/token', (req, res, next) => {
   res.cookie('user',1,{ 
     expires: new Date(Date.now() + 1000000000), 
     httpOnly: false, 
-    sameSite: 'None', 
-    secure: true ,
+    // sameSite: 'None', 
+    // secure: true ,
     // domain: 'www.bbscmyk.com'
   });
   // res.setHeader('Set-Cookie', serialize('isVisit', '1'));
