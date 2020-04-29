@@ -12,7 +12,7 @@ var app = express();
 
 
 var corsOptions = {
-  origin: 'http://localhost:8877',
+  origin: 'http://www.innok-lpsk.com',
   credentials: true,
   maxAge: '1728000'
   //这一项是为了跨域专门设置的

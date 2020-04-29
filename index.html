@@ -5,8 +5,8 @@
     <body>
 
         <div>
-            <button onclick="cross">跨域登录</button>
-            <button>设置cookie</button>
+            <button onclick="cross()">跨域登录</button>
+            <button onclick="set()">设置cookie</button>
         </div>
         <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
 
@@ -14,7 +14,7 @@
 
             function cross() {
                 $.ajax({
-                    url:"http://www.innok-lpsk.com/node/token",
+                    url:"https://www.bbscmyk.com/nodeServer/token",
                     type: 'get',
                     dataType: "jsonp",
                     jsonp: 'callback',
@@ -24,6 +24,21 @@
                         }
                     }
                 })
+            }
+
+            function set() {
+                setCookie('user', '1111111111', 1000000)
+            }
+
+            function setCookie(name, value, seconds) {
+                seconds = seconds || 0;   
+                var expires = "";
+                if (seconds != 0 ) {      
+                    var date = new Date();
+                    date.setTime(date.getTime()+(seconds*1000));
+                    expires = "; expires="+date.toGMTString();
+                }
+                document.cookie = name+"="+escape(value)+expires+"; path=/";   
             }
         </script>
     </body>
