@@ -22,13 +22,13 @@ var corsOptions = {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.all('*', function(req, res, next) {
-       res.header("Access-Control-Allow-Origin", req.headers.origin); //需要显示设置来源
-       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-       res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-      res.header("Access-Control-Allow-Credentials",true); //带cookies7     res.header("Content-Type", "application/json;charset=utf-8");
-     next();
-  });
+// app.all('*', function(req, res, next) {
+//        res.header("Access-Control-Allow-Origin", req.headers.origin); //需要显示设置来源
+//        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//        res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+//       res.header("Access-Control-Allow-Credentials",true); //带cookies7     res.header("Content-Type", "application/json;charset=utf-8");
+//      next();
+//   });
 
 app.use(cors(corsOptions));
 app.use(logger('dev'));
@@ -37,18 +37,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-var serialize = function(name, val, opt) {
-  var pairs = [name + '=' + val];
-  opt = opt || {};
-  if (opt.maxAge) pairs.push('Max-Age=' + opt.maxAge);
-  if (opt.domain) pairs.push('Domain=' + opt.domain);
-  if (opt.path) pairs.push('Path=' + opt.path);
-  if (opt.expires) pairs.push('Expires=' + opt.exppires.toUTCString());
-  if (opt.httpOnly) pairs.push('HttpOnly');
-  if (opt.secure) pairs.push('Secure');
-  return pairs.join(';');
-  };
 
 app.get('/token', (req, res, next) => {
 
