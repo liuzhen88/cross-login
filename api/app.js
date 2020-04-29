@@ -44,7 +44,8 @@ app.get('/token', (req, res, next) => {
     expires: new Date(Date.now() + 1000000000), 
     httpOnly: false, 
     sameSite: 'None', 
-    secure: true 
+    secure: true ,
+    domain: 'www.bbscmyk.com'
   });
   // res.setHeader('Set-Cookie', serialize('isVisit', '1'));
 
