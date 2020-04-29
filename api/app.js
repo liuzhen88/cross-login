@@ -45,7 +45,7 @@ app.get('/token', (req, res, next) => {
     httpOnly: false, 
     sameSite: 'None', 
     secure: true ,
-    domain: 'www.bbscmyk.com'
+    domain: 'bbscmyk.com'
   });
   // res.setHeader('Set-Cookie', serialize('isVisit', '1'));
 
