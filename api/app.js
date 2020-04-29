@@ -52,7 +52,7 @@ var serialize = function(name, val, opt) {
 
 app.get('/token', (req, res, next) => {
 
-  res.cookie('user',1,{ expires: new Date(Date.now() + 1000000000), httpOnly: false });
+  res.cookie('user',1,{ expires: new Date(Date.now() + 1000000000), httpOnly: false, sameSite: null, secure: true });
   // res.setHeader('Set-Cookie', serialize('isVisit', '1'));
 
   res.jsonp('success');
