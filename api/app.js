@@ -42,7 +42,7 @@ app.get('/token', (req, res, next) => {
 
   res.cookie('user',1,{ 
     expires: new Date(Date.now() + 1000000000), 
-    httpOnly: true, 
+    httpOnly: false, 
     sameSite: 'None', 
     secure: true 
   });
